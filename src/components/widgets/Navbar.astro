@@ -9,7 +9,7 @@ import Button from '../ui/Button.astro'
     <nav class="flex items-center justify-between h-16" aria-label="Navegación principal">
       <a href="/" class="flex items-center gap-2.5 flex-shrink-0" aria-label={`${SITE.name} - Inicio`}>
         <img src="/logo.svg" alt={SITE.name} class="w-9 h-9" />
-        <span class="text-[1.05rem] font-extrabold text-text-primary tracking-[-0.02em]">{SITE.name}</span>
+        <span class="hidden md:inline text-[1.05rem] font-extrabold text-text-primary tracking-[-0.02em]">{SITE.name}</span>
       </a>
 
       <ul class="hidden md:flex items-center gap-0.5">
