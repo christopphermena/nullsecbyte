@@ -1,0 +1,26 @@
+---
+import { SITE } from '../../constants'
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  email: SITE.email,
+  sameAs: [
+    SITE.social.github,
+    SITE.social.youtube,
+    SITE.social.twitter,
+  ].filter(Boolean),
+  knowsAbout: [
+    'Desarrollo Web',
+    'Landing Pages',
+    'Diseño UI',
+    'Astro',
+    'React',
+    'Tailwind CSS',
+    'SEO',
+  ],
+})} />

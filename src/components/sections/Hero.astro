@@ -1,0 +1,91 @@
+---
+import Button from '../ui/Button.astro'
+---
+
+<section id="hero" aria-labelledby="hero-title" class="min-h-screen flex items-center pt-20 bg-base relative overflow-hidden">
+  <div class="blob w-[600px] h-[600px] bg-primary/15 top-[-150px] right-[-150px]"></div>
+  <div class="blob w-[500px] h-[500px] bg-secondary/12 bottom-[-100px] left-[-120px]"></div>
+  <div class="blob w-[350px] h-[350px] bg-accent-soft/10 top-[30%] left-[55%]"></div>
+
+  <div class="bg-grid absolute inset-0 opacity-60 pointer-events-none"></div>
+
+  <div class="container relative z-10 w-full max-w-[1120px] mx-auto px-6 py-16 md:py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-primary-light">Contenido · Diseño · Desarrollo</span>
+        </div>
+
+        <h1 id="hero-title" class="text-[clamp(2.8rem,7vw,4.5rem)] font-black leading-[1.05] tracking-[-0.035em] text-text-primary mb-5">
+          Aprende a crear<br />
+          <span class="gradient-text">Landing Pages que venden.</span>
+        </h1>
+
+        <p class="text-[clamp(1rem,2vw,1.2rem)] text-text-secondary max-w-[520px] mb-10 leading-[1.7]">
+          Comparto todo el proceso: diseño, desarrollo, SEO y optimización para que aprendas a crear páginas profesionales o trabajemos juntos en tu próximo proyecto.
+        </p>
+
+        <div class="flex flex-wrap gap-3.5 mb-14">
+          <Button href="#tutoriales" variant="primary" size="lg" ariaLabel="Ver tutoriales">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Explorar tutoriales
+          </Button>
+          <Button href="#contacto" variant="ghost" size="lg">
+            Trabajemos juntos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </Button>
+        </div>
+
+        <div class="flex flex-wrap gap-6 pt-8 border-t border-border" aria-label="Estadísticas">
+          <div>
+            <div class="text-[1.4rem] font-black gradient-text tracking-[-0.02em]">4+</div>
+            <div class="text-[0.7rem] font-medium tracking-[0.1em] uppercase text-text-muted mt-1">proyectos entregados</div>
+          </div>
+          <div>
+            <div class="text-[1.4rem] font-black gradient-text-duo tracking-[-0.02em]">100%</div>
+            <div class="text-[0.7rem] font-medium tracking-[0.1em] uppercase text-text-muted mt-1">enfoque en resultados</div>
+          </div>
+          <div>
+            <div class="text-[1.4rem] font-black gradient-text tracking-[-0.02em]">Astro</div>
+            <div class="text-[0.7rem] font-medium tracking-[0.1em] uppercase text-text-muted mt-1">tecnología principal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative hidden md:block fade-up" style="transition-delay: 0.15s">
+        <div class="relative w-full aspect-[4/3]">
+          <div class="absolute top-0 right-0 w-[90%] aspect-[4/3] bg-card rounded-[--radius-xl] shadow-[0_20px_60px_-12px_rgba(0,0,0,0.4)] border border-border overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border bg-surface">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+              <span class="text-[0.65rem] font-medium text-text-muted ml-2">proyecto-demo.vercel.app</span>
+            </div>
+            <div class="p-4 space-y-3">
+              <div class="h-3 w-3/4 rounded bg-gradient-to-r from-primary/30 to-secondary/30"></div>
+              <div class="h-2 w-1/2 rounded bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+              <div class="grid grid-cols-3 gap-2 mt-4">
+                <div class="h-20 rounded-[--radius-md] bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+                <div class="h-20 rounded-[--radius-md] bg-gradient-to-br from-accent/20 to-primary/20"></div>
+                <div class="h-20 rounded-[--radius-md] bg-gradient-to-br from-secondary/20 to-accent-soft/20"></div>
+              </div>
+              <div class="h-2 w-full rounded bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+              <div class="h-2 w-2/3 rounded bg-gradient-to-r from-primary/20 to-secondary/20"></div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-4 left-0 w-[60%] bg-card rounded-[--radius-lg] shadow-[0_10px_40px_-8px_rgba(0,0,0,0.3)] border border-border p-4 backdrop-blur-[8px]">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full gradient-bg flex items-center justify-center text-white text-[0.6rem] font-bold">LP</div>
+              <div class="flex-1">
+                <div class="h-2.5 w-3/4 rounded bg-gradient-to-r from-primary/30 to-secondary/30"></div>
+                <div class="h-2 w-1/2 rounded bg-gradient-to-r from-primary/20 to-secondary/20 mt-1.5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

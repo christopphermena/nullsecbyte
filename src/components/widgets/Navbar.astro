@@ -1,0 +1,86 @@
+---
+import { SITE } from '../../constants'
+import { NAV_LINKS } from '../../constants'
+import Button from '../ui/Button.astro'
+---
+
+<header id="header" role="banner" class="fixed top-0 left-0 right-0 z-100 bg-base/80 backdrop-blur-[12px] border-b border-border transition-colors duration-[0.22s]">
+  <div class="container max-w-[1120px] mx-auto px-6">
+    <nav class="flex items-center justify-between h-16" aria-label="Navegación principal">
+      <a href="/" class="flex items-center gap-2.5 flex-shrink-0" aria-label={`${SITE.name} - Inicio`}>
+        <img src="/logo.svg" alt={SITE.name} class="w-9 h-9" />
+        <span class="text-[1.05rem] font-extrabold text-text-primary tracking-[-0.02em]">{SITE.name}</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-0.5">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-[0.85rem] font-medium text-text-secondary px-3.5 py-2 rounded-[--radius-md] transition-all duration-[0.22s] hover:text-text-primary hover:bg-white/[0.04]"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <Button href="#contacto" variant="primary" size="sm" class="hidden md:inline-flex">
+          Trabajemos juntos
+        </Button>
+        <button
+          class="hamburger md:hidden flex flex-col gap-[5px] bg-none border-none p-1.5 rounded-[--radius-md] cursor-pointer"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          id="hamburger-btn"
+        >
+          <span class="block w-[22px] h-[2px] bg-text-secondary rounded transition-all duration-[0.25s]"></span>
+          <span class="block w-[22px] h-[2px] bg-text-secondary rounded transition-all duration-[0.25s]"></span>
+          <span class="block w-[22px] h-[2px] bg-text-secondary rounded transition-all duration-[0.25s]"></span>
+        </button>
+      </div>
+    </nav>
+
+    <nav id="mobile-menu" class="hidden flex-col bg-card border-t border-border px-6 pb-5 gap-1" aria-label="Menú móvil" role="navigation">
+      {NAV_LINKS.map((link) => (
+        <a href={link.href} class="block text-[0.95rem] font-medium text-text-secondary px-3 py-2.5 rounded-[--radius-md] transition-all duration-[0.22s] hover:text-text-primary hover:bg-white/[0.04]">
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#contacto"
+        class="mt-2 inline-flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-[--radius-md] gradient-bg text-white transition-all duration-[0.22s]"
+      >
+        Trabajemos juntos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger-btn')
+  const mobileMenu = document.getElementById('mobile-menu')
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('open')
+    hamburger?.setAttribute('aria-expanded', String(isOpen))
+    hamburger?.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú')
+  })
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('open')
+      hamburger?.setAttribute('aria-expanded', 'false')
+      hamburger?.setAttribute('aria-label', 'Abrir menú')
+    })
+  })
+</script>
+
+<style>
+  .open { display: flex; }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+</style>

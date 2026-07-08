@@ -1,0 +1,58 @@
+---
+import { FAQ_ITEMS } from '../../constants'
+import Section from '../ui/Section.astro'
+import Container from '../ui/Container.astro'
+import SectionHeader from '../ui/SectionHeader.astro'
+---
+
+<Section id="faq" ariaLabelledby="faq-title" background="surface">
+  <Container>
+    <SectionHeader
+      label="Preguntas frecuentes"
+      title="Respuestas rápidas"
+      description="Lo que más me preguntan antes de empezar un proyecto."
+      id="faq-title"
+    />
+    <div class="max-w-[720px] mx-auto mt-12 flex flex-col border border-border rounded-[--radius-lg] overflow-hidden bg-card">
+      {FAQ_ITEMS.map((item) => (
+        <div class="faq-item border-b border-border last:border-b-0">
+          <button
+            class="faq-btn w-full flex justify-between items-center gap-4 px-6 py-5 bg-card border-none text-text-primary text-[0.9rem] font-semibold text-left cursor-pointer transition-colors duration-[0.22s] ease-in-out hover:bg-white/[0.03] focus-visible:outline-2 focus-visible:outline-primary"
+            aria-expanded="false"
+            id={item.id + '-btn'}
+            aria-controls={item.id + '-ans'}
+          >
+            {item.question}
+            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center transition-transform duration-[0.25s]">
+              <svg class="w-2.5 h-2.5 stroke-primary fill-none stroke-[2.5] stroke-linecap-round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-[0.35s] ease-in-out" id={item.id + '-ans'} role="region" aria-labelledby={item.id + '-btn'}>
+            <div class="px-6 pb-5 text-sm text-text-secondary leading-[1.7]">
+              {item.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item')
+      const isOpen = item?.classList.toggle('open')
+      btn.setAttribute('aria-expanded', String(isOpen))
+    })
+  })
+</script>
+
+<style>
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+  }
+  .faq-item.open .flex-shrink-0.w-5 {
+    transform: rotate(45deg);
+  }
+</style>

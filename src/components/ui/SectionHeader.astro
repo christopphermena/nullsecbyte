@@ -1,0 +1,27 @@
+---
+export interface Props {
+  label?: string
+  title: string
+  description?: string
+  id?: string
+  animate?: boolean
+  align?: 'center' | 'left'
+}
+---
+
+<div class={`mb-16 ${Astro.props.animate !== false ? 'fade-up' : ''} ${Astro.props.align === 'left' ? 'text-left' : 'text-center'}`}>
+  {Astro.props.label && (
+    <p class="text-xs font-semibold tracking-[0.16em] uppercase text-primary mb-4">{Astro.props.label}</p>
+  )}
+  <h2
+    id={Astro.props.id}
+    class="text-[clamp(2rem,4.5vw,3.2rem)] font-black leading-[1.1] tracking-[-0.025em] text-text-primary"
+  >
+    <Fragment set:html={Astro.props.title} />
+  </h2>
+  {Astro.props.description && (
+    <p class="text-text-muted text-lg max-w-[560px] mt-4 leading-[1.7] mx-auto">
+      {Astro.props.description}
+    </p>
+  )}
+</div>

@@ -1,0 +1,42 @@
+---
+import Section from '../ui/Section.astro'
+import Container from '../ui/Container.astro'
+import Button from '../ui/Button.astro'
+---
+
+<Section id="sobre-mi" ariaLabelledby="about-title" background="gradient">
+  <Container>
+    <div class="fade-up max-w-2xl mx-auto">
+        <p class="text-xs font-semibold tracking-[0.16em] uppercase text-primary mb-4">Sobre mí</p>
+        <h2 id="about-title" class="text-[clamp(2rem,4vw,3rem)] font-black leading-[1.1] tracking-[-0.025em] text-text-primary mb-6">
+          Hago Landing Pages.<br />
+          <span class="gradient-text">Enseño lo que sé.</span>
+        </h2>
+        <div class="space-y-4 text-text-secondary leading-[1.8]">
+          <p>
+            Soy desarrollador especializado en crear Landing Pages modernas y rápidas. Me apasiona el diseño limpio, el código bien escrito y compartir todo lo que aprendo en el proceso.
+          </p>
+          <p>
+            Creo que una página web debe ser bonita, rápida y efectiva. Por eso cada proyecto lo construyo desde cero, pensando en los detalles que marcan la diferencia.
+          </p>
+          <p>
+            Además de desarrollar, creo contenido para ayudar a otros a entrar en el mundo del desarrollo web. Tutoriales, diseño, SEO y optimización: todo lo que me hubiera gustado saber cuando empecé.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-light">Astro</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary">React</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent">Tailwind</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent-soft/10 border border-accent-soft/20 text-accent-soft">TypeScript</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent-warm/10 border border-accent-warm/20 text-accent-warm">Figma</span>
+        </div>
+
+        <div class="mt-8">
+          <Button href="#contacto" variant="primary" size="md">
+            Trabajemos juntos
+          </Button>
+        </div>
+    </div>
+  </Container>
+</Section>

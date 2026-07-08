@@ -1,0 +1,49 @@
+---
+import '../styles/global.css'
+import BaseHead from '../components/seo/BaseHead.astro'
+import Schema from '../components/seo/Schema.astro'
+import Analytics from '../components/seo/Analytics.astro'
+import Navbar from '../components/widgets/Navbar.astro'
+import CookieBanner from '../components/widgets/CookieBanner.astro'
+
+export interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+  ogImage?: string
+  noindex?: boolean
+}
+---
+
+<!DOCTYPE html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <BaseHead
+      title={Astro.props.title}
+      description={Astro.props.description}
+      canonical={Astro.props.canonical}
+      ogImage={Astro.props.ogImage}
+      noindex={Astro.props.noindex}
+    />
+    <Schema />
+    <Analytics />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+  </head>
+  <body>
+    <Navbar />
+
+    <main>
+      <slot />
+    </main>
+
+    <CookieBanner />
+
+    <script>
+      import { initScrollAnimations } from '../lib/scroll-observer'
+      document.addEventListener('DOMContentLoaded', initScrollAnimations)
+    </script>
+  </body>
+</html>

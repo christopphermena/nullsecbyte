@@ -1,0 +1,50 @@
+---
+import { SITE } from '../../constants'
+
+export interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+  ogImage?: string
+  ogType?: string
+  noindex?: boolean
+}
+
+const {
+  title = `${SITE.name} | ${SITE.tagline}`,
+  description = SITE.description,
+  canonical = SITE.url,
+  ogImage = `${SITE.url}/og-image.jpg`,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props
+
+const fullTitle = title.includes('|') ? title : `${title} | ${SITE.name}`
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="theme-color" content="#000000" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+
+<meta name="application-name" content={SITE.name} />
+<meta name="author" content={SITE.name} />
+<meta name="generator" content="Astro" />
+<meta name="keywords" content="landing pages, desarrollo web, astro, tailwind, diseño ui, tutoriales web" />
+
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:site_name" content={SITE.name} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}

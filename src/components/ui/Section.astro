@@ -1,0 +1,30 @@
+---
+import { cn } from '../../utils/cn'
+
+export interface Props {
+  id?: string
+  class?: string
+  ariaLabelledby?: string
+  as?: 'section' | 'div'
+  background?: 'base' | 'surface' | 'gradient'
+}
+
+const Tag = Astro.props.as || 'section'
+const bg = {
+  base: 'bg-base',
+  surface: 'bg-surface',
+  gradient: 'bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.06),transparent_70%)]',
+}
+---
+
+<Tag
+  id={Astro.props.id}
+  class={cn(
+    'py-20 md:py-28',
+    bg[Astro.props.background || 'base'],
+    Astro.props.class,
+  )}
+  aria-labelledby={Astro.props.ariaLabelledby}
+>
+  <slot />
+</Tag>

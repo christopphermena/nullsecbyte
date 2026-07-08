@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nsbyte.dev/sitemap.xml
