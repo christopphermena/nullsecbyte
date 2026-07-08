@@ -1,6 +1,8 @@
-# NullSecByte — Landing page de ciberseguridad
+# nullsecbyte — Landing Pages + Tutoriales
 
-Landing page profesional para NullSecByte, empresa de ciberseguridad orientada a PYMES en Chile. Construida con Astro 5 + Tailwind CSS 4 + TypeScript.
+Sitio personal de **nullsecbyte** donde comparto tutoriales de desarrollo web, muestro proyectos y ofrezco servicios de creación de landing pages modernas.
+
+Construido con Astro 5 + Tailwind CSS 4 + TypeScript.
 
 ## Stack tecnológico
 
@@ -11,7 +13,6 @@ Landing page profesional para NullSecByte, empresa de ciberseguridad orientada a
 | **TypeScript** | Tipado estricto en toda la base de código |
 | **MDX** | Preparado para blog y contenido futuro |
 | **@fontsource/inter** | Fuente Inter auto-hosteada (sin Google Fonts externo) |
-| **Formspree** | Backend del formulario de contacto |
 
 ## Estructura del proyecto
 
@@ -19,13 +20,13 @@ Landing page profesional para NullSecByte, empresa de ciberseguridad orientada a
 src/
 ├── components/
 │   ├── seo/          # BaseHead, Schema, Analytics
-│   ├── sections/     # Hero, Benefits, Services, Process, Risks, etc.
-│   ├── ui/           # Button, Container, SectionHeader, ServiceCard, etc.
-│   └── widgets/      # Navbar, Footer, WhatsAppFloat, CookieBanner, ContactForm
-├── constants/        # site, navigation, services, process, risks, faq, differentiators
+│   ├── sections/     # Hero, Services, Tutorials, About, TechStack, Process, Faq, Cta
+│   ├── ui/           # Button, Container, Section, SectionHeader
+│   └── widgets/      # Navbar, Footer, CookieBanner
+├── constants/        # site, navigation, services, process, tutorials, projects, faq, tech
 ├── layouts/          # BaseLayout
 ├── lib/              # scroll-observer, analytics
-├── pages/            # index.astro (+ blog/ preparado)
+├── pages/            # index.astro
 ├── styles/           # global.css (Tailwind + design tokens)
 ├── types/            # TypeScript interfaces
 └── utils/            # cn (classnames helper)
@@ -34,11 +35,10 @@ src/
 ## Principios de arquitectura
 
 - **Componentes atómicos** — Cada componente tiene una única responsabilidad
-- **Datos fuera del markup** — Servicios, FAQ, config en archivos `constants/` tipados
+- **Datos fuera del markup** — Servicios, FAQ, tutoriales y config en archivos `constants/` tipados
 - **Cero JS por defecto** — Astro renderiza HTML estático; JS solo para interactividad necesaria
-- **SEO first** — Meta tags, Open Graph, Twitter Cards, Schema.org, sitemap
+- **SEO first** — Meta tags, Open Graph, Schema.org, sitemap
 - **Rendimiento** — Fonts auto-hosteado, CSS purgado por Tailwind, HTML comprimido
-- **Escalabilidad** — Arquitectura preparada para blog, CMS, base de datos, panel admin
 
 ## Instalación
 
@@ -77,30 +77,27 @@ cp .env.example .env
 | Variable | Descripción |
 |---|---|
 | `PUBLIC_GA_ID` | Google Analytics 4 ID (G-XXXXXXXXXX) |
-| `PUBLIC_META_PIXEL_ID` | Meta Pixel ID |
-| `PUBLIC_FORMSPREE_ID` | Formspree form ID |
-| `PUBLIC_WHATSAPP` | Número WhatsApp (sin +) |
+| `PUBLIC_YOUTUBE_URL` | URL del canal de YouTube |
+| `PUBLIC_YOUTUBE_API_KEY` | YouTube Data API key (opcional) |
 | `PUBLIC_EMAIL` | Correo de contacto |
 
 ## Despliegue
 
-### Netlify (recomendado)
+### Netlify / Vercel
 
 1. Conecta el repositorio de GitHub
 2. Build command: `npm run build`
 3. Publish directory: `dist`
 4. Listo — SSL automático
 
-## Servicios incluidos
+## Servicios
 
-- Auditoría básica de seguridad
-- Evaluación de exposición en Internet
-- Capacitación anti-phishing
-- Respaldo y recuperación
-- Inventario tecnológico
-- Hardening básico
-- Protección de cuentas
-- Consultoría de seguridad
+- Landing Pages
+- Diseño UI
+- Desarrollo con Astro
+- Optimización de performance
+- SEO técnico
+- Diseño responsive
 
 ## Licencia
 
