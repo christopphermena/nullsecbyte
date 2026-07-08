@@ -5,8 +5,8 @@ export const SITE: SiteConfig = {
   tagline: 'Landing Pages que convierten',
   description:
     'Creo Landing Pages modernas y comparto todo el proceso: diseño, desarrollo, SEO y optimización para que aprendas a crear páginas profesionales o trabajemos juntos en tu próximo proyecto.',
-  url: 'https://nsbyte.dev',
-  email: 'hola@nsbyte.dev',
+  url: 'https://nullsecbyte.netlify.app',
+  email: 'nullsecbyte@gmail.com',
   locale: 'es_CL',
   social: {
     github: 'https://github.com/nsbyte',
@@ -14,6 +14,6 @@ export const SITE: SiteConfig = {
     twitter: 'https://x.com/nsbyte',
     instagram: 'https://instagram.com/nullsecbyte',
     tiktok: 'https://tiktok.com/@nullsecbyte',
-    email: 'mailto:hola@nsbyte.dev',
+    email: 'mailto:nullsecbyte@gmail.com',
   },
 }

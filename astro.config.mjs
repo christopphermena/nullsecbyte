@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
-  site: 'https://nsbyte.dev',
+  site: 'https://nullsecbyte.netlify.app',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],
